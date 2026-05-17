@@ -781,8 +781,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </button>
             <!-- Skip back -->
-            <button class="yt-btn" title="10 שניות אחורה">
+            <button class="yt-btn" id="yt-back" title="10 שניות אחורה">
               <svg viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+            </button>
+            <!-- Skip forward -->
+            <button class="yt-btn" id="yt-forward" title="10 שניות קדימה">
+              <svg viewBox="0 0 24 24"><path d="M12 19v4l5-5-5-5v4c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6h2c0-4.42-3.58-8-8-8s-8 3.58-8 8 3.58 8 8 8z"/></svg>
             </button>
             <!-- Volume -->
             <button class="yt-btn" id="yt-mute" title="השתק">
@@ -1000,8 +1004,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <button class="yt-btn" id="showcase-play" title="נגן">
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </button>
-            <button class="yt-btn" title="10 שניות אחורה">
+            <button class="yt-btn" id="showcase-back" title="10 שניות אחורה">
               <svg viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+            </button>
+            <button class="yt-btn" id="showcase-forward" title="10 שניות קדימה">
+              <svg viewBox="0 0 24 24"><path d="M12 19v4l5-5-5-5v4c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6h2c0-4.42-3.58-8-8-8s-8 3.58-8 8 3.58 8 8 8z"/></svg>
             </button>
             <button class="yt-btn" id="showcase-mute" title="השתק">
               <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.26 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
@@ -1166,6 +1173,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   ytPlay.addEventListener('click', () => {
     heroVideo.paused ? heroVideo.play() : heroVideo.pause();
   });
+  document.getElementById('yt-back').addEventListener('click', () => {
+    heroVideo.currentTime = Math.max(0, heroVideo.currentTime - 10);
+  });
+  document.getElementById('yt-forward').addEventListener('click', () => {
+    heroVideo.currentTime = Math.min(heroVideo.duration, heroVideo.currentTime + 10);
+  });
   ytProgress.addEventListener('click', e => {
     const r = ytProgress.getBoundingClientRect();
     const percent = (e.clientX - r.left) / r.width;
@@ -1211,6 +1224,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 
   showcasePlay.addEventListener('click', () => showcaseSetPlaying(!showcasePlaying));
+  document.getElementById('showcase-back').addEventListener('click', () => {
+    showcaseElapsed = Math.max(0, showcaseElapsed - 10);
+    showcaseFill.style.width = (showcaseElapsed / showcaseDuration * 100) + '%';
+    showcaseTime.textContent = showcaseFmt(showcaseElapsed) + ' / ' + showcaseFmt(showcaseDuration);
+  });
+  document.getElementById('showcase-forward').addEventListener('click', () => {
+    showcaseElapsed = Math.min(showcaseElapsed + 10, showcaseDuration);
+    showcaseFill.style.width = (showcaseElapsed / showcaseDuration * 100) + '%';
+    showcaseTime.textContent = showcaseFmt(showcaseElapsed) + ' / ' + showcaseFmt(showcaseDuration);
+  });
   showcaseProgress.addEventListener('click', e => {
     const r = showcaseProgress.getBoundingClientRect();
     showcaseElapsed = ((e.clientX - r.left) / r.width) * showcaseDuration;
