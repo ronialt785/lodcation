@@ -700,6 +700,9 @@
     .foot-bottom { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; }
     .foot-copy { font-size:.76rem; font-weight:300; color:rgba(255,255,255,.35); }
 
+    /* ══ UTILITY CLASSES ══════════════════════════ */
+    .mobile-only { display:none; }
+
     /* ══ RESPONSIVE ══════════════════════════════ */
     @media (max-width:960px) {
       .hero-grid  { grid-template-columns:1fr; gap:28px; padding:40px 20px 0; }
@@ -722,6 +725,7 @@
       .strip-div  { display:none; }
       .strip-fields { flex-wrap:wrap; }
       .strip-btn  { width:100%; }
+      .mobile-only { display:block !important; }
       /* Mobile media carousel - horizontal scroll */
       .media-deck { height:auto; overflow-x:auto; overflow-y:hidden; -webkit-overflow-scrolling:touch; scrollbar-width:none; justify-content:flex-start; padding:20px 0; }
       .media-deck::-webkit-scrollbar { display:none; }
@@ -857,7 +861,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="why-icon-line"></div>
         <h3>10 דקות לתל אביב</h3>
-        <p>2 תחנות רכבת מהירות בלב העיר עם קו ישיר לתל אביב.<br/>חיבור לכל הכבישים הראשיים: 1, 40, 6, 431 -- 200 ולנמל התעופה בן גוריון.</p>
+        <p>2 תחנות רכבת מהירות בלב העיר <br class="mobile-only"/>עם קו ישיר לתל אביב.<br/>חיבור לכל הכבישים הראשיים: 1, 40, 6, 431 -- 200 ולנמל התעופה בן גוריון.</p>
       </div>
 
     </div>
