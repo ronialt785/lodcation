@@ -493,7 +493,7 @@
 
     .media-deck {
       display:flex; justify-content:center; align-items:center;
-      position:relative; height:600px; margin:0 auto;
+      position:relative; height:350px; margin:0 auto;
       overflow:visible;
     }
     #media { overflow:hidden; }
@@ -515,40 +515,40 @@
     .media-slide:nth-child(5) { transform:rotate(9deg)   translate(-14px,12px); z-index:5; }
     .media-slide:nth-child(6) { transform:rotate(16deg)  translate(-24px,20px); z-index:6; }
 
-    /* ── Fan Style — full width spread ── */
+    /* ── Subtle Curved Row — minimal spread ── */
     /* Center: card 4 */
     .media-deck.spread .media-slide:nth-child(4) {
-      transform:rotate(0deg) translate(0px,0px) scale(1.04);
+      transform:rotate(0deg) translate(0px,2px) scale(1.02);
       opacity:1; z-index:4; transition-delay:0s; transition-duration:.72s;
     }
-    /* Left side: fan arc left — full width */
+    /* Left side: subtle curve left */
     .media-deck.spread .media-slide:nth-child(3) {
-      transform:rotate(-8deg) translate(-200px,-15px) scale(1.02);
+      transform:rotate(-1.5deg) translate(-220px,-2px) scale(1.01);
       opacity:1; z-index:3; transition-delay:.06s; transition-duration:.76s;
     }
     .media-deck.spread .media-slide:nth-child(2) {
-      transform:rotate(-16deg) translate(-420px,20px) scale(1.01);
+      transform:rotate(-3deg) translate(-440px,2px) scale(1.01);
       opacity:1; z-index:2; transition-delay:.12s; transition-duration:.85s;
     }
     .media-deck.spread .media-slide:nth-child(1) {
-      transform:rotate(-24deg) translate(-640px,80px) scale(.99);
+      transform:rotate(-4.5deg) translate(-660px,8px) scale(.99);
       opacity:1; z-index:1; transition-delay:.18s; transition-duration:.95s;
     }
-    /* Right side: fan arc right — full width (mirror of left) */
+    /* Right side: subtle curve right (mirror of left) */
     .media-deck.spread .media-slide:nth-child(5) {
-      transform:rotate(8deg)  translate(200px,-15px)  scale(1.02);
+      transform:rotate(1.5deg)  translate(220px,-2px)  scale(1.01);
       opacity:1; z-index:5; transition-delay:.06s; transition-duration:.76s;
     }
     .media-deck.spread .media-slide:nth-child(6) {
-      transform:rotate(16deg)  translate(420px,20px)  scale(1.01);
+      transform:rotate(3deg)  translate(440px,2px)  scale(1.01);
       opacity:1; z-index:6; transition-delay:.12s; transition-duration:.85s;
     }
     .media-deck.spread .media-slide:nth-child(7) {
-      transform:rotate(20deg) translate(530px,50px) scale(.99);
+      transform:rotate(3.75deg) translate(550px,5px) scale(.99);
       opacity:1; z-index:7; transition-delay:.15s; transition-duration:.90s;
     }
     .media-deck.spread .media-slide:nth-child(8) {
-      transform:rotate(24deg)  translate(640px,80px)  scale(.99);
+      transform:rotate(4.5deg)  translate(660px,8px)  scale(.99);
       opacity:1; z-index:8; transition-delay:.18s; transition-duration:.95s;
     }
 
