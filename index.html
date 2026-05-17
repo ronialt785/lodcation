@@ -722,6 +722,11 @@
       .strip-div  { display:none; }
       .strip-fields { flex-wrap:wrap; }
       .strip-btn  { width:100%; }
+      /* Mobile media carousel - horizontal scroll */
+      .media-deck { height:auto; overflow-x:auto; overflow-y:hidden; -webkit-overflow-scrolling:touch; scrollbar-width:none; justify-content:flex-start; padding:20px 0; }
+      .media-deck::-webkit-scrollbar { display:none; }
+      .media-slide { position:relative !important; flex:0 0 160px; width:160px; margin:0 12px; transform:none !important; opacity:1 !important; z-index:auto !important; }
+      .media-deck.spread .media-slide { transform:none !important; translate:none !important; }
     }
   </style>
 </head>
