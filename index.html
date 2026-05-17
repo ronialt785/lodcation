@@ -912,6 +912,12 @@
 
     </div>
 
+    <div style="text-align:center; margin-top:40px; margin-bottom:20px;">
+      <button onclick="toggleLoadMore()" style="background:#291876; color:#fff; border:none; padding:12px 28px; border-radius:6px; font-size:1rem; font-weight:700; cursor:pointer; transition:background var(--ease);" onmouseover="this.style.background='#1a0d4d'" onmouseout="this.style.background='#291876'">
+        עוד פרויקטים ↓
+      </button>
+    </div>
+
     <!-- Hidden extra projects -->
     <div class="proj-grid proj-more" id="proj-more" style="display:none; margin-top:22px;">
 
@@ -1189,6 +1195,15 @@
     const isOpen = details.classList.toggle('open');
     btn.textContent = isOpen ? 'סגור ↑' : 'לפרטים נוספים ↓';
     btn.style.background = isOpen ? '#aa206e' : '#291876';
+  }
+
+  function toggleLoadMore() {
+    const moreProjects = document.getElementById('proj-more');
+    if (moreProjects.style.display === 'none' || moreProjects.style.display === '') {
+      moreProjects.style.display = 'grid';
+    } else {
+      moreProjects.style.display = 'none';
+    }
   }
 
   /* ── Media deck spread on scroll ── */
