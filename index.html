@@ -947,7 +947,7 @@
     <h2 class="showcase-headline">לוד ממריאה <span style="color:#aa206e;">להצלחה</span></h2>
     <div style="width:48px; height:3px; background:#291876; border-radius:2px; margin:0px auto 20px;"></div>
     <div class="video-showcase-wrap">
-      <video id="showcase-video" class="showcase-video-element" muted playsinline>
+      <video id="showcase-video" class="showcase-video-element" muted playsinline autoplay>
         <source src="https://storage.googleapis.com/lodcation_landing_page/GUY_LOD_VIDEO_1080.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
@@ -1213,6 +1213,18 @@
   new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) mediaDeck.classList.add('spread'); });
   }, { threshold: 0.4 }).observe(mediaDeck);
+
+  /* ── Second video autoplay on scroll ── */
+  const showcaseVideo = document.getElementById('showcase-video');
+  if (showcaseVideo) {
+    new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          showcaseVideo.play();
+        }
+      });
+    }, { threshold: 0.3 }).observe(showcaseVideo);
+  }
 
   /* ── Media card → press logo highlight ── */
   const pressLogosWrap = document.getElementById('press-logos-wrap');
