@@ -1293,9 +1293,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   document.getElementById('strip-submit').addEventListener('click', () => {
     const name  = document.getElementById('s-name').value.trim();
     const phone = document.getElementById('s-phone').value.trim();
+    const email = document.getElementById('s-email').value.trim();
+
     if (!name || !phone) { alert('נא למלא שם וטלפון'); return; }
-    document.getElementById('strip-fields').style.display = 'none';
-    document.getElementById('strip-ok').style.display = 'flex';
+
+    // Extract first and last name
+    const nameParts = name.split(' ');
+    const fname = nameParts[0];
+    const lname = nameParts.slice(1).join(' ') || fname;
+
+    // Send data to Google Sheets
+    const data = {
+      fname: fname,
+      lname: lname,
+      phone: phone,
+      email: email,
+      aptType: 'דירה'
+    };
+
+    fetch('https://script.google.com/macros/s/AKfycbxGS2RsMvICShKn5iJTDy8mXRu3xGOAha7XQlDuuJ875_dXdxEghYaO3NtbA4RfKVzP/exec', {
+      method: 'POST',
+      body: JSON.stringify(data)
+    })
+    .then(response => {
+      document.getElementById('strip-fields').style.display = 'none';
+      document.getElementById('strip-ok').style.display = 'flex';
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('שגיאה בשליחת הנתונים');
+    });
   });
 
   /* Lucide icons */
