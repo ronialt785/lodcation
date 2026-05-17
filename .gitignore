@@ -1,0 +1,7 @@
+.vercel
+node_modules
+.claude
+package-lock.json
+generate_brief.js
+VIDEO HEADER/*.mp4
+SECOND VODEO/
