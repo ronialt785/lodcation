@@ -1164,6 +1164,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   heroVideo.addEventListener('loadedmetadata', updateProgress);
 
   heroVideo.addEventListener('play', () => {
+    const showcaseVideo = document.getElementById('showcase-video');
+    if (showcaseVideo) showcaseVideo.pause();
     ytPlay.innerHTML = `<svg viewBox="0 0 24 24"><path fill="#fff" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>`;
   });
   heroVideo.addEventListener('pause', () => {
@@ -1283,9 +1285,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     entries.forEach(e => { if (e.isIntersecting) mediaDeck.classList.add('spread'); });
   }, { threshold: 0.4 }).observe(mediaDeck);
 
-  /* ── Second video autoplay on scroll ── */
+  /* ── Second video autoplay on scroll + prevent dual playback ── */
   const showcaseVideo = document.getElementById('showcase-video');
   if (showcaseVideo) {
+    showcaseVideo.addEventListener('play', () => {
+      heroVideo.pause();
+    });
     new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
