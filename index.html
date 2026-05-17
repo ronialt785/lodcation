@@ -1146,7 +1146,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
   ytProgress.addEventListener('click', e => {
     const r = ytProgress.getBoundingClientRect();
-    const percent = (e.clientX - r.left) / r.width;
+    const percent = (r.right - e.clientX) / r.width;
     heroVideo.currentTime = percent * heroVideo.duration;
   });
   ytMuteBtn.addEventListener('click', () => {
@@ -1201,7 +1201,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
   showcaseProgress.addEventListener('click', e => {
     const r = showcaseProgress.getBoundingClientRect();
-    showcaseElapsed = ((e.clientX - r.left) / r.width) * showcaseDuration;
+    showcaseElapsed = ((r.right - e.clientX) / r.width) * showcaseDuration;
     showcaseFill.style.width = (showcaseElapsed / showcaseDuration * 100) + '%';
     showcaseTime.textContent = showcaseFmt(showcaseElapsed) + ' / ' + showcaseFmt(showcaseDuration);
   });
