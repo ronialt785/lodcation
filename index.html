@@ -765,7 +765,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- LEFT: video/image (column 2 in RTL) -->
     <div class="hero-video-wrap">
-      <video id="hero-video" class="hero-video-element" playsinline autoplay>
+      <video id="hero-video" class="hero-video-element" playsinline muted>
         <source src="https://storage.googleapis.com/lodcation_landing_page/800_-_eiryat_lod_hd_59s%20(1080p).mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
@@ -1085,6 +1085,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   const ytVol = document.getElementById('yt-vol');
   const ytProgress = document.getElementById('yt-progress');
   let ytMuted = false;
+
+  /* Autoplay hero video on mobile only */
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.matchMedia('(max-width: 768px)').matches;
+  if (isMobile) {
+    heroVideo.addEventListener('loadedmetadata', () => {
+      heroVideo.play().catch(err => console.log('Autoplay prevented:', err));
+    });
+  }
 
   function ytFmt(s){ return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0'); }
 
