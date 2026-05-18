@@ -1501,19 +1501,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
   }
 
-  /* ── Second video autoplay on scroll + prevent dual playback ── */
+  /* ── Prevent dual playback when user manually plays showcase video ── */
   const showcaseVideo = document.getElementById('showcase-video');
   if (showcaseVideo) {
     showcaseVideo.addEventListener('play', () => {
       heroVideo.pause();
     });
-    new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          showcaseVideo.play();
-        }
-      });
-    }, { threshold: 0.3 }).observe(showcaseVideo);
+    // Removed auto-play on scroll - video only plays when user clicks it
   }
 
   /* ── Media card → press logo highlight & click to link ── */
