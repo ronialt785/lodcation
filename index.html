@@ -1483,15 +1483,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     entries.forEach(e => { if (e.isIntersecting) mediaDeck.classList.add('spread'); });
   }, { threshold: 0.4 }).observe(mediaDeck);
 
-  /* ── Media carousel rotation ── */
+  /* ── Media carousel rotation - rotate through all 8 slides ── */
   function rotateMediaSlides(direction) {
-    const slides = document.querySelectorAll('.media-slide');
-    mediaRotation = (mediaRotation + direction) % slides.length;
-    slides.forEach((slide, i) => {
-      const newIndex = (i - mediaRotation + slides.length) % slides.length;
-      const offset = newIndex - Math.floor(slides.length / 2);
-      slide.style.order = newIndex;
-    });
+    const slides = Array.from(document.querySelectorAll('.media-slide'));
+    const firstSlide = slides[0];
+
+    if (direction > 0) {
+      // Right arrow: move first slide to end
+      firstSlide.parentNode.appendChild(firstSlide);
+    } else {
+      // Left arrow: move last slide to beginning
+      slides[slides.length - 1].parentNode.insertBefore(slides[slides.length - 1], firstSlide);
+    }
   }
 
   /* ── Second video autoplay on scroll + prevent dual playback ── */
