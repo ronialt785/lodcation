@@ -1056,6 +1056,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
 
+      <div class="proj-card">
+        <div class="proj-carousel" data-carousel-index="0" style="position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; background:#f0f0f0;">
+          <img class="proj-carousel-img" src="https://storage.googleapis.com/lodcation_landing_page/media/IMAGE/Urban%20renewal/BEN%20SHEMEN/CULTURE%20AND%20FREE%20TIME/WhatsApp%20Image%202026-05-17%20at%2013.30.40.jpeg" alt="קומפלקס תרבות בילוי ופנאי" style="width:100%; height:100%; object-fit:cover; object-position:center;" />
+          <img class="proj-carousel-img" src="https://storage.googleapis.com/lodcation_landing_page/media/IMAGE/Urban%20renewal/BEN%20SHEMEN/CULTURE%20AND%20FREE%20TIME/%D7%94%D7%99%D7%9B%D7%9C%20%D7%94%D7%AA%D7%A8%D7%91%D7%95%D7%AA.jpg" alt="היכל התרבות" style="width:100%; height:100%; object-fit:cover; object-position:center; display:none;" />
+          <img class="proj-carousel-img" src="https://storage.googleapis.com/lodcation_landing_page/media/IMAGE/Urban%20renewal/BEN%20SHEMEN/CULTURE%20AND%20FREE%20TIME/%D7%A9%D7%9C%D7%9E%D7%94%20%D7%94%D7%9E%D7%9C%D7%9A%20%D7%94%D7%93%D7%9E%D7%99%D7%94%20%D7%9E%D7%A2%D7%95%D7%93%D7%9B%D7%A0%D7%AA.png" alt="שלמה המלך הדמיה" style="width:100%; height:100%; object-fit:cover; object-position:center; display:none;" />
+          <button class="proj-carousel-btn proj-carousel-prev" onclick="scrollProjCarousel(this, -1)" style="position:absolute; left:12px; top:50%; transform:translateY(-50%); width:40px; height:40px; background:rgba(255,255,255,.85); border:none; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:5; transition:background .3s;">
+            <svg style="width:20px; height:20px; stroke:currentColor;" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="proj-carousel-btn proj-carousel-next" onclick="scrollProjCarousel(this, 1)" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); width:40px; height:40px; background:rgba(255,255,255,.85); border:none; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:5; transition:background .3s;">
+            <svg style="width:20px; height:20px; stroke:currentColor;" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <div style="position:absolute; bottom:12px; left:50%; transform:translateX(-50%); display:flex; gap:6px; z-index:5;">
+            <span class="proj-carousel-dot" style="width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.9); cursor:pointer;" onclick="setProjCarouselIndex(this, 0)"></span>
+            <span class="proj-carousel-dot" style="width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.4); cursor:pointer;" onclick="setProjCarouselIndex(this, 1)"></span>
+            <span class="proj-carousel-dot" style="width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.4); cursor:pointer;" onclick="setProjCarouselIndex(this, 2)"></span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <h3>קומפלקס תרבות בילוי ופנאי</h3>
+          <p>העיר לוד מגדירה מחדש את תרבות הפנאי והבילוי בישראל, עם פרויקטי ענק, מתחמי ספורט בינלאומיים ומוקדי תרבות ותיירות חדשניים שיהפכו את העיר ללב הפועם של האזור כולו.</p>
+          <button class="proj-link" onclick="toggleProj(this)">לפרטים נוספים ↓</button>
+          <div class="proj-details">
+            <div class="proj-details-inner">
+              <strong style="font-size:1.3rem; display:block; margin-bottom:16px;">מה עולה בלוד?</strong>
+              <p><strong style="color:#000;">הארנה החדשה ברובע Lodcation:</strong> מתחם ספורט ותרבות בינלאומי ומתקדם, שיהווה אבן שואבת למופעי ענק, אירועי ספורט ארציים ובינלאומיים, וחוויית בילוי חסרת תקדים.</p>
+              <p><strong style="color:#000;">מגרש גולף בינלאומי (אקו גולף):</strong> מתחם תיירות, ספורט ונופש יוקרתי ויוצא דופן בהיקפו, המשלב ריאות ירוקות רחבות ידיים, חוויית ספורט אקסקלוסיבית ושטחי מסחר ייחודיים.</p>
+              <p><strong style="color:#000;">היכל חדיש ומפואר לאמנויות הבמה:</strong> לצד ספריה עירונית בעיצוב עוצר נשימה, מוזיאונים ייחודיים ופיתוח תיירותי מתקדם שיציגו את העושר ההיסטורי והתרבותי של העיר.</p>
+              <p><strong style="color:#000;">מרכזי מסחר חדשניים:</strong> מתחמי קניות, בתי קפה ומסעדות לייף-סטייל הפזורים בלב העיר ובשכונות החדשות, ומעניקים חוויית שופינג ובילוי תוססת ממש מתחת לבית.</p>
+              <p><strong style="color:#000;">ספורט ואורח חיים בריא:</strong> מתקני ספורט מתקדמים ברחבי העיר, כולל מגרשי פאדל (Padel) חדישים ומסלולי הליכה ואופניים לרווחת התושבים והמבקרים.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
   </div>
