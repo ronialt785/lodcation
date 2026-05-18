@@ -1454,16 +1454,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
   });
 
-  /* ── Auto-highlight first media logo on page load ── */
+  /* ── Auto-highlight Mako logo on page load ── */
   window.addEventListener('load', () => {
-    const firstMediaSlide = document.querySelector('.media-slide');
-    if (firstMediaSlide && pressLogosWrap) {
-      const logoId = firstMediaSlide.dataset.logo;
+    if (pressLogosWrap) {
       setTimeout(() => {
         pressLogosWrap.classList.add('press-logos-dim');
         document.querySelectorAll('.press-img').forEach(l => l.classList.remove('logo-active'));
-        const target = document.getElementById('press-logo-' + logoId);
-        if (target) target.classList.add('logo-active');
+        const makoLogo = document.getElementById('press-logo-1');
+        if (makoLogo) makoLogo.classList.add('logo-active');
       }, 800);
     }
   });
