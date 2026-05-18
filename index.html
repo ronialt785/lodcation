@@ -1258,13 +1258,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   let ytMuted = false;
   heroVideo.muted = false;
 
-  /* Autoplay hero video on mobile only */
-  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.matchMedia('(max-width: 768px)').matches;
-  if (isMobile) {
-    heroVideo.addEventListener('loadedmetadata', () => {
-      heroVideo.play().catch(err => console.log('Autoplay prevented:', err));
-    });
-  }
+  /* Autoplay hero video with sound on all devices */
+  heroVideo.addEventListener('loadedmetadata', () => {
+    heroVideo.volume = 1;
+    heroVideo.muted = false;
+    heroVideo.play().catch(err => console.log('Autoplay prevented by browser policy'));
+  });
 
   function ytFmt(s){ return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0'); }
 
