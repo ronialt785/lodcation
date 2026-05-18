@@ -1527,34 +1527,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
   }
 
-  function scrollMediaDeckToSlide(index) {
-    const deck = document.getElementById('media-deck');
-    const slides = document.querySelectorAll('.media-slide');
-    if (index < 0 || index >= slides.length) return;
+  let currentMediaIndex = 0;
 
-    const slide = slides[index];
-    const slideWidth = slide.offsetWidth + 24; // 24px is the gap
-    deck.scrollLeft = index * slideWidth;
+  function scrollMediaDeckToSlide(targetIndex) {
+    const slides = document.querySelectorAll('.media-slide');
+    const totalSlides = slides.length;
+
+    // Calculate how many rotations needed
+    let rotationsNeeded = (targetIndex - currentMediaIndex + totalSlides) % totalSlides;
+
+    // Rotate the slides
+    for (let i = 0; i < rotationsNeeded; i++) {
+      rotateMediaSlides(1);
+    }
+
+    currentMediaIndex = targetIndex;
 
     // Update dot indicators
     document.querySelectorAll('.media-dot').forEach((dot, i) => {
-      dot.style.background = i === index ? '#7B5CBF' : '#d0bfff';
+      dot.style.background = i === targetIndex ? '#7B5CBF' : '#d0bfff';
     });
   }
 
-  // Update dots on manual scroll
-  const mediaDeck = document.getElementById('media-deck');
-  if (mediaDeck) {
-    mediaDeck.addEventListener('scroll', () => {
-      const slides = document.querySelectorAll('.media-slide');
-      const firstSlide = slides[0];
-      const slideWidth = firstSlide.offsetWidth + 24;
-      const currentIndex = Math.round(mediaDeck.scrollLeft / slideWidth);
-      document.querySelectorAll('.media-dot').forEach((dot, i) => {
-        dot.style.background = i === currentIndex ? '#7B5CBF' : '#d0bfff';
-      });
+  // Original rotateMediaSlides function tracks the current index
+  const originalRotateMediaSlides = window.rotateMediaSlides;
+  window.rotateMediaSlides = function(direction) {
+    originalRotateMediaSlides(direction);
+    const slides = document.querySelectorAll('.media-slide');
+    currentMediaIndex = (currentMediaIndex + direction + slides.length) % slides.length;
+
+    // Update dots
+    document.querySelectorAll('.media-dot').forEach((dot, i) => {
+      dot.style.background = i === currentMediaIndex ? '#7B5CBF' : '#d0bfff';
     });
-  }
+  };
 
   /* ── Prevent dual playback when user manually plays showcase video ── */
   const showcaseVideo = document.getElementById('showcase-video');
