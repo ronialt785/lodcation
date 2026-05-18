@@ -762,9 +762,10 @@
       .media-cards{ grid-template-columns:1fr; }
       .proj-grid  { grid-template-columns:1fr; }
       .gal-grid   { grid-template-columns:1fr 1fr; grid-template-rows:auto; }
-      .strip-label{ display:none; }
+      .strip-label{ display:block; font-size:.75rem; white-space:normal; margin-bottom:12px; }
       .strip-div  { display:none; }
-      .strip-fields { flex-wrap:wrap; }
+      .strip-inner { flex-direction:column; align-items:flex-start; gap:12px; padding:14px 10px; }
+      .strip-fields { flex-wrap:wrap; width:100%; }
       /* Mobile phone call button */
       .nav-phone-call { display:flex; }
       .strip-btn  { width:100%; }
