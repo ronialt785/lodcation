@@ -1202,6 +1202,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="media-slide" data-logo="6" data-url="https://www.funder.co.il/article/196228"><div class="media-slide-inner"><img src="https://storage.googleapis.com/lodcation_landing_page/media/3527_LOD_ARTICLES_1080X1350_PURPLE8.png" alt="כלכלית לוד בתקשורת" /></div></div>
         <div class="media-slide" data-logo="1" data-url="https://www.mako.co.il/finances-real-estate/Article-a6c92aa20680b91027.htm"><div class="media-slide-inner"><img src="https://storage.googleapis.com/lodcation_landing_page/media/3527_LOD_ARTICLES_1080X1350_PURPLE4.png" alt="כלכלית לוד בתקשורת" /></div></div>
       </div>
+      <div style="display:flex; justify-content:center; gap:8px; margin-top:24px;">
+        <span class="media-dot" style="width:10px; height:10px; border-radius:50%; background:#7B5CBF; cursor:pointer;" onclick="scrollMediaDeckToSlide(0)"></span>
+        <span class="media-dot" style="width:10px; height:10px; border-radius:50%; background:#d0bfff; cursor:pointer;" onclick="scrollMediaDeckToSlide(1)"></span>
+        <span class="media-dot" style="width:10px; height:10px; border-radius:50%; background:#d0bfff; cursor:pointer;" onclick="scrollMediaDeckToSlide(2)"></span>
+        <span class="media-dot" style="width:10px; height:10px; border-radius:50%; background:#d0bfff; cursor:pointer;" onclick="scrollMediaDeckToSlide(3)"></span>
+        <span class="media-dot" style="width:10px; height:10px; border-radius:50%; background:#d0bfff; cursor:pointer;" onclick="scrollMediaDeckToSlide(4)"></span>
+        <span class="media-dot" style="width:10px; height:10px; border-radius:50%; background:#d0bfff; cursor:pointer;" onclick="scrollMediaDeckToSlide(5)"></span>
+        <span class="media-dot" style="width:10px; height:10px; border-radius:50%; background:#d0bfff; cursor:pointer;" onclick="scrollMediaDeckToSlide(6)"></span>
+        <span class="media-dot" style="width:10px; height:10px; border-radius:50%; background:#d0bfff; cursor:pointer;" onclick="scrollMediaDeckToSlide(7)"></span>
+      </div>
     </div>
 
     <!-- כפי שפורסם ב -->
@@ -1509,6 +1519,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       // Left arrow: move last slide to beginning
       slides[slides.length - 1].parentNode.insertBefore(slides[slides.length - 1], firstSlide);
     }
+  }
+
+  function scrollMediaDeckToSlide(index) {
+    const deck = document.getElementById('media-deck');
+    const slides = document.querySelectorAll('.media-slide');
+    if (index < 0 || index >= slides.length) return;
+
+    const slide = slides[index];
+    const slideWidth = slide.offsetWidth + 24; // 24px is the gap
+    deck.scrollLeft = index * slideWidth;
+
+    // Update dot indicators
+    document.querySelectorAll('.media-dot').forEach((dot, i) => {
+      dot.style.background = i === index ? '#7B5CBF' : '#d0bfff';
+    });
+  }
+
+  // Update dots on manual scroll
+  const mediaDeck = document.getElementById('media-deck');
+  if (mediaDeck) {
+    mediaDeck.addEventListener('scroll', () => {
+      const slides = document.querySelectorAll('.media-slide');
+      const firstSlide = slides[0];
+      const slideWidth = firstSlide.offsetWidth + 24;
+      const currentIndex = Math.round(mediaDeck.scrollLeft / slideWidth);
+      document.querySelectorAll('.media-dot').forEach((dot, i) => {
+        dot.style.background = i === currentIndex ? '#7B5CBF' : '#d0bfff';
+      });
+    });
   }
 
   /* ── Prevent dual playback when user manually plays showcase video ── */
