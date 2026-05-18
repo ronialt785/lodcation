@@ -768,8 +768,9 @@
       .strip-close { display:none; }
       .strip-div  { display:none; }
       .strip-inner { flex-direction:column; align-items:center; gap:20px; padding:20px 15px; width:100%; }
-      .strip-fields { flex-direction:row; flex-wrap:nowrap; width:100%; gap:15px; justify-content:center; align-items:center; }
-      .strip-inp { flex:1; min-width:80px; }
+      .strip-fields { flex-direction:row; flex-wrap:nowrap; width:100%; gap:15px; justify-content:center; align-items:flex-end; }
+      .strip-inp { flex:1; min-width:70px; font-size:.85rem; padding:12px 2px 7px 2px; }
+      .strip-inp::placeholder { color:rgba(255,255,255,.85); font-weight:500; }
       /* Mobile phone call button */
       .nav-phone-call { display:flex; }
       .strip-btn  { width:100%; }
