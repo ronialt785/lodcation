@@ -962,7 +962,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <div class="proj-card">
-        <img class="proj-img" src="https://storage.googleapis.com/lodcation_landing_page/media/IMAGE/LEV/%D7%95%D7%93%20LOV_1.png" alt="מגוון פרויקטי מגורים בלב העיר" style="object-position:right center;" />
+        <div class="proj-carousel" style="position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; background:#f0f0f0;">
+          <img class="proj-carousel-img" src="https://storage.googleapis.com/lodcation_landing_page/media/IMAGE/LEV/%D7%95%D7%93%20LOV_1.png" alt="לובלוד" style="width:100%; height:100%; object-fit:cover; object-position:right center;" />
+          <img class="proj-carousel-img" src="https://storage.googleapis.com/lodcation_landing_page/media/IMAGE/LEV/%D7%9E%D7%A6%D7%A4%D7%94%20%D7%A8%D7%A0%D7%94_1.png" alt="מצפה רנה" style="width:100%; height:100%; object-fit:cover; object-position:center; display:none;" />
+          <img class="proj-carousel-img" src="https://storage.googleapis.com/lodcation_landing_page/media/IMAGE/LEV/%D7%A9%D7%9B%D7%95%D7%A0%D7%AA%20%D7%94%D7%9E%D7%A9%D7%95%D7%A8%D7%A8%D7%99%D7%9D_1.png" alt="שכונת המשוררים" style="width:100%; height:100%; object-fit:cover; object-position:center; display:none;" />
+          <button class="proj-carousel-btn proj-carousel-prev" onclick="scrollProjCarousel(this, -1)" style="position:absolute; left:12px; top:50%; transform:translateY(-50%); width:40px; height:40px; background:rgba(255,255,255,.85); border:none; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:5; transition:background .3s;">
+            <svg style="width:20px; height:20px; stroke:currentColor;" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="proj-carousel-btn proj-carousel-next" onclick="scrollProjCarousel(this, 1)" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); width:40px; height:40px; background:rgba(255,255,255,.85); border:none; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:5; transition:background .3s;">
+            <svg style="width:20px; height:20px; stroke:currentColor;" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <div style="position:absolute; bottom:12px; left:50%; transform:translateX(-50%); display:flex; gap:6px; z-index:5;">
+            <span class="proj-carousel-dot" style="width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.9); cursor:pointer;" onclick="setProjCarouselIndex(0)"></span>
+            <span class="proj-carousel-dot" style="width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.4); cursor:pointer;" onclick="setProjCarouselIndex(1)"></span>
+            <span class="proj-carousel-dot" style="width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.4); cursor:pointer;" onclick="setProjCarouselIndex(2)"></span>
+          </div>
+        </div>
         <div class="proj-body">
           <h3>מגוון פרוייקטי מגורים בלב העיר</h3>
           <p>העיר לוד עוברת מהפכת התחדשות חסרת תקדים. כאן, כל אחד יכול למצוא בדיוק את מה שמתאים לו - משפחות צעירות, הקהילה הדתית-לאומית, הציבור החילוני, אנשי כוחות הביטחון ועוד.</p>
@@ -1257,6 +1272,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const btn = document.getElementById('load-more-btn');
     more.style.display = 'grid';
     btn.style.display = 'none';
+  }
+
+  /* ── Project carousel ── */
+  let projCarouselIndex = 0;
+
+  function scrollProjCarousel(btn, direction) {
+    const carousel = btn.closest('.proj-carousel');
+    const imgs = carousel.querySelectorAll('.proj-carousel-img');
+    const dots = carousel.querySelectorAll('.proj-carousel-dot');
+
+    projCarouselIndex = (projCarouselIndex + direction + imgs.length) % imgs.length;
+
+    imgs.forEach((img, i) => img.style.display = i === projCarouselIndex ? 'block' : 'none');
+    dots.forEach((dot, i) => dot.style.background = i === projCarouselIndex ? 'rgba(255,255,255,.9)' : 'rgba(255,255,255,.4)');
+  }
+
+  function setProjCarouselIndex(idx) {
+    const carousel = document.querySelector('.proj-carousel');
+    const imgs = carousel.querySelectorAll('.proj-carousel-img');
+    const dots = carousel.querySelectorAll('.proj-carousel-dot');
+
+    projCarouselIndex = idx;
+
+    imgs.forEach((img, i) => img.style.display = i === projCarouselIndex ? 'block' : 'none');
+    dots.forEach((dot, i) => dot.style.background = i === projCarouselIndex ? 'rgba(255,255,255,.9)' : 'rgba(255,255,255,.4)');
   }
 
   /* ── Project expand ── */
