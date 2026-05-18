@@ -1259,11 +1259,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   heroVideo.muted = false;
 
   /* Autoplay hero video with sound on all devices */
-  heroVideo.addEventListener('loadedmetadata', () => {
-    heroVideo.volume = 1;
-    heroVideo.muted = false;
-    heroVideo.play().catch(err => console.log('Autoplay prevented by browser policy'));
-  });
+  heroVideo.volume = 1;
+  heroVideo.muted = false;
+
+  function playVideo() {
+    heroVideo.play().catch(err => {
+      console.log('Autoplay attempt failed, will retry on interaction');
+      document.addEventListener('click', playVideo, { once: true });
+    });
+  }
+
+  if (heroVideo.readyState >= 2) {
+    playVideo();
+  }
+  heroVideo.addEventListener('canplay', playVideo);
+  heroVideo.addEventListener('loadedmetadata', playVideo);
 
   function ytFmt(s){ return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0'); }
 
