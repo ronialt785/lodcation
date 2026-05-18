@@ -67,13 +67,14 @@
     }
 
     .nav-phone-call {
-      display:flex; align-items:center; gap:6px;
-      color:var(--blue); font-weight:700; font-size:.9rem;
-      transition:opacity var(--ease);
-      margin-right:20px;
+      display:flex; align-items:center; gap:8px;
+      background:var(--blue); color:#fff; font-weight:700; font-size:.9rem;
+      padding:10px 18px; border:none; border-radius:6px;
+      cursor:pointer; transition:background var(--ease), transform .2s;
+      margin-left:auto;
       flex-shrink:0;
     }
-    .nav-phone-call:hover { opacity:.75; }
+    .nav-phone-call:hover { background:var(--blue-dk); transform:translateY(-1px); }
     .nav-phone-call svg { width:18px; height:18px; }
     .nav-logo img { height:160px; width:auto; filter:none; }
 
@@ -759,10 +760,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ══════════════════ HEADER ══════════════════ -->
 <header id="header">
   <div class="nav-inner">
-    <a href="tel:*2686" class="nav-phone-call" title="חייג עכשיו">
-      <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M17.92 7.02C17.45 6.18 16.59 5.6 15.59 5.6c-1.45 0-2.64 1.19-2.64 2.65 0 .45.12.88.32 1.24.68 1.42 2.28 2.71 3.84 2.71.92 0 1.78-.29 2.5-.8l3.57 3.57c.6-.64 1.5-1.04 2.49-1.04 1.45 0 2.65 1.19 2.65 2.65 0 .45-.12.88-.32 1.24l-3.57-3.57c.51-.72.8-1.58.8-2.5 0-1.45-1.19-2.64-2.65-2.64-.45 0-.88.12-1.24.32l-3.57-3.57zm6.43 6.43c-.6.64-1.5 1.04-2.49 1.04-1.45 0-2.65-1.19-2.65-2.65 0-.45.12-.88.32-1.24l3.57 3.57c-.51.72-.8 1.58-.8 2.5 0 1.45 1.19 2.64 2.65 2.64.45 0 .88-.12 1.24-.32l3.57 3.57c.6-.64 1.5-1.04 2.49-1.04 1.45 0 2.65 1.19 2.65 2.65 0 .45-.12.88-.32 1.24l-3.57-3.57z"/></svg>
-      <span>*2686</span>
-    </a>
     <a href="#" class="nav-logo">
       <img src="LODCATION_OTHER_VERSIONS_FOR_WEB-01.png" alt="כלכלית לוד" />
     </a>
@@ -772,6 +769,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a href="#media">בתקשורת</a></li>
       <li><a href="#gallery">גלריה</a></li>
     </ul>
+    <button class="nav-phone-call" onclick="window.location.href='tel:*2686'" title="חייג עכשיו">
+      <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M17.92 7.02C17.45 6.18 16.59 5.6 15.59 5.6c-1.45 0-2.64 1.19-2.64 2.65 0 .45.12.88.32 1.24.68 1.42 2.28 2.71 3.84 2.71.92 0 1.78-.29 2.5-.8l3.57 3.57c.6-.64 1.5-1.04 2.49-1.04 1.45 0 2.65 1.19 2.65 2.65 0 .45-.12.88-.32 1.24l-3.57-3.57c.51-.72.8-1.58.8-2.5 0-1.45-1.19-2.64-2.65-2.64-.45 0-.88.12-1.24.32l-3.57-3.57zm6.43 6.43c-.6.64-1.5 1.04-2.49 1.04-1.45 0-2.65-1.19-2.65-2.65 0-.45.12-.88.32-1.24l3.57 3.57c-.51.72-.8 1.58-.8 2.5 0 1.45 1.19 2.64 2.65 2.64.45 0 .88-.12 1.24-.32l3.57 3.57c.6-.64 1.5-1.04 2.49-1.04 1.45 0 2.65 1.19 2.65 2.65 0 .45-.12.88-.32 1.24l-3.57-3.57z"/></svg>
+      <span>*2686</span>
+    </button>
   </div>
 </header>
 
