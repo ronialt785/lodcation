@@ -962,7 +962,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <div class="proj-card">
-        <div class="proj-carousel" style="position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; background:#f0f0f0;">
+        <div class="proj-carousel" data-carousel-index="0" style="position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; background:#f0f0f0;">
           <img class="proj-carousel-img" src="https://storage.googleapis.com/lodcation_landing_page/media/IMAGE/LEV/%D7%95%D7%93%20LOV_1.png" alt="לובלוד" style="width:100%; height:100%; object-fit:cover; object-position:right bottom;" />
           <img class="proj-carousel-img" src="https://storage.googleapis.com/lodcation_landing_page/media/IMAGE/LEV/%D7%9E%D7%A6%D7%A4%D7%94%20%D7%A8%D7%A0%D7%94_1.png" alt="מצפה רנה" style="width:100%; height:100%; object-fit:cover; object-position:right bottom; display:none;" />
           <img class="proj-carousel-img" src="https://storage.googleapis.com/lodcation_landing_page/media/IMAGE/LEV/%D7%A9%D7%9B%D7%95%D7%A0%D7%AA%20%D7%94%D7%9E%D7%A9%D7%95%D7%A8%D7%A8%D7%99%D7%9D_1.png" alt="שכונת המשוררים" style="width:100%; height:100%; object-fit:cover; object-position:left top; display:none;" />
@@ -973,9 +973,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <svg style="width:20px; height:20px; stroke:currentColor;" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
           </button>
           <div style="position:absolute; bottom:12px; left:50%; transform:translateX(-50%); display:flex; gap:6px; z-index:5;">
-            <span class="proj-carousel-dot" style="width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.9); cursor:pointer;" onclick="setProjCarouselIndex(0)"></span>
-            <span class="proj-carousel-dot" style="width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.4); cursor:pointer;" onclick="setProjCarouselIndex(1)"></span>
-            <span class="proj-carousel-dot" style="width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.4); cursor:pointer;" onclick="setProjCarouselIndex(2)"></span>
+            <span class="proj-carousel-dot" style="width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.9); cursor:pointer;" onclick="setProjCarouselIndex(this, 0)"></span>
+            <span class="proj-carousel-dot" style="width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.4); cursor:pointer;" onclick="setProjCarouselIndex(this, 1)"></span>
+            <span class="proj-carousel-dot" style="width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.4); cursor:pointer;" onclick="setProjCarouselIndex(this, 2)"></span>
           </div>
         </div>
         <div class="proj-body">
@@ -989,6 +989,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <p><strong style="color:#000;">התאמה מדויקת לכל קהילה:</strong> פסיפס אנושי עשיר המאפשר לכל אחד למצוא את הסביבה שלו. מתחמים ייעודיים וקהילות מגובשות לציבור החילוני, לציבור הדתי-לאומי, לאנשי כוחות הביטחון ולמשפחות שרוצות לגדול יחד.</p>
               <p><strong style="color:#000;">מהפכת התחדשות עירונית:</strong> לחיות בלב העיר וליהנות מתשתיות חדשות לחלוטין, מוסדות חינוך ותרבות מתקדמים, שטחים ירוקים פתוחים ופיתוח סביבתי מושקע.</p>
               <p><strong style="color:#000;">נגישות מנצחת במחיר משתלם:</strong> ליהנות מכל היתרונות של מרכז הארץ, עם חיבור תחבורתי מהיר וקל לצירי התנועה הראשיים ולרכבת, ובמחירים המייצרים הזדמנות נדל"נית חכמה.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-carousel" data-carousel-index="0" style="position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; background:#f0f0f0;">
+          <img class="proj-carousel-img" src="https://storage.googleapis.com/lodcation_landing_page/media/IMAGE/Urban%20renewal/%D7%9E%D7%AA%D7%97%D7%9D%20%D7%94%D7%A1-%D7%92%D7%95%D7%9C%D7%93%D7%91%D7%A8%D7%92%20(%D7%94%D7%93%D7%9E%D7%99%D7%94).jpeg" alt="התחדשות עירונית" style="width:100%; height:100%; object-fit:cover; object-position:center;" />
+          <img class="proj-carousel-img" src="https://storage.googleapis.com/lodcation_landing_page/media/IMAGE/Urban%20renewal/%D7%9E%D7%AA%D7%97%D7%9D%20%D7%A9%D7%9C%D7%9E%D7%94%20%D7%94%D7%9E%D7%9C%D7%9A%20(%D7%94%D7%93%D7%9E%D7%99%D7%94).jpeg" alt="מתחם שלמה המלך" style="width:100%; height:100%; object-fit:cover; object-position:center; display:none;" />
+          <img class="proj-carousel-img" src="https://storage.googleapis.com/lodcation_landing_page/media/IMAGE/Urban%20renewal/%D7%9E%D7%AA%D7%97%D7%9D%20%D7%93%D7%95%D7%93%20%D7%94%D7%9E%D7%9C%D7%9A%20(%D7%94%D7%93%D7%9E%D7%99%D7%94).jpeg" alt="מתחם דוד המלך" style="width:100%; height:100%; object-fit:cover; object-position:center; display:none;" />
+          <img class="proj-carousel-img" src="https://storage.googleapis.com/lodcation_landing_page/media/IMAGE/Urban%20renewal/%D7%9C%D7%95%D7%93%20%D7%93%D7%A8%D7%95%D7%9D%20(%D7%94%D7%93%D7%9E%D7%99%D7%94).jpeg" alt="לוד דרום" style="width:100%; height:100%; object-fit:cover; object-position:center; display:none;" />
+          <img class="proj-carousel-img" src="https://storage.googleapis.com/lodcation_landing_page/media/IMAGE/Urban%20renewal/%D7%9B%D7%9B%D7%A8%20%D7%94%D7%AA%D7%97%D7%A0%D7%94%20(%D7%94%D7%93%D7%9E%D7%99%D7%94).jpeg" alt="ככר התחנה" style="width:100%; height:100%; object-fit:cover; object-position:center; display:none;" />
+          <button class="proj-carousel-btn proj-carousel-prev" onclick="scrollProjCarousel(this, -1)" style="position:absolute; left:12px; top:50%; transform:translateY(-50%); width:40px; height:40px; background:rgba(255,255,255,.85); border:none; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:5; transition:background .3s;">
+            <svg style="width:20px; height:20px; stroke:currentColor;" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="proj-carousel-btn proj-carousel-next" onclick="scrollProjCarousel(this, 1)" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); width:40px; height:40px; background:rgba(255,255,255,.85); border:none; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:5; transition:background .3s;">
+            <svg style="width:20px; height:20px; stroke:currentColor;" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <div style="position:absolute; bottom:12px; left:50%; transform:translateX(-50%); display:flex; gap:6px; z-index:5;">
+            <span class="proj-carousel-dot" style="width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.9); cursor:pointer;" onclick="setProjCarouselIndex(this, 0)"></span>
+            <span class="proj-carousel-dot" style="width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.4); cursor:pointer;" onclick="setProjCarouselIndex(this, 1)"></span>
+            <span class="proj-carousel-dot" style="width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.4); cursor:pointer;" onclick="setProjCarouselIndex(this, 2)"></span>
+            <span class="proj-carousel-dot" style="width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.4); cursor:pointer;" onclick="setProjCarouselIndex(this, 3)"></span>
+            <span class="proj-carousel-dot" style="width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.4); cursor:pointer;" onclick="setProjCarouselIndex(this, 4)"></span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <h3>התחדשות עירונית בהיקף חסר תקדים</h3>
+          <p>למעלה מ-90% משטח העיר כבר תוכנן מחדש במתחמי התחדשות עירונית מודרניים. זוהי מהפכה המשדרגת מהיסוד את איכות החיים של התושבים הוותיקים, ומייצרת הזדמנות יוצאת דופן לכל מי שיבחר נכון ויצטרף להצלחה בהקדם.</p>
+          <button class="proj-link" onclick="toggleProj(this)">לפרטים נוספים ↓</button>
+          <div class="proj-details">
+            <div class="proj-details-inner">
+              <strong style="font-size:1.3rem; display:block; margin-bottom:16px;">למה לבחור בהתחדשות העירונית של לוד?</strong>
+              <p><strong style="color:#000;">תוכנית ענק שכבר קורית בשטח:</strong> העיר משנה את פניה כאן ועכשיו. חלק גדול ממתחמי הענק כבר נמצאים בשלבי ביצוע מתקדמים, ושאר המתחמים המובילים יחלו בביצוע בשנים הקרובות.</p>
+              <p><strong style="color:#000;">תכנון מקיף וחסר תקדים:</strong> מהפכה אורבנית חכמה הכוללת תכנון מחדש של למעלה מ-90% משטחי העיר, המביאה איתה בנייה בסטנדרטים הגבוהים ביותר ושדרוג דרמטי של סביבת המגורים גם מבחינת תשתיות, מבני ציבור ותחבורה.</p>
+              <p><strong style="color:#000;">סביבת חיים מודרנית וחכמה:</strong> התחדשות העירונית אינה רק בנייים – היא כוללת הקמת מוסדות חינוך חדשניים, פארקים ירוקים, שטחי ציבור פתוחים ותשתיות מתקדמות מתחת לבית.</p>
+              <p><strong style="color:#000;">העיתוי המושלם להצטרף:</strong> הזדמנות נדל"נית חכמה במיקום האסטרטגי ביותר במרכז הארץ. מי שישכיל לבחור נכון ויצטרף בהקדם, ייהנה מפוטנציאל צמיחה אדיר.</p>
             </div>
           </div>
         </div>
@@ -1274,29 +1311,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     btn.style.display = 'none';
   }
 
-  /* ── Project carousel ── */
-  let projCarouselIndex = 0;
-
+  /* ── Project carousel (multiple carousels) ── */
   function scrollProjCarousel(btn, direction) {
     const carousel = btn.closest('.proj-carousel');
     const imgs = carousel.querySelectorAll('.proj-carousel-img');
     const dots = carousel.querySelectorAll('.proj-carousel-dot');
 
-    projCarouselIndex = (projCarouselIndex + direction + imgs.length) % imgs.length;
+    let idx = parseInt(carousel.dataset.carouselIndex) || 0;
+    idx = (idx + direction + imgs.length) % imgs.length;
+    carousel.dataset.carouselIndex = idx;
 
-    imgs.forEach((img, i) => img.style.display = i === projCarouselIndex ? 'block' : 'none');
-    dots.forEach((dot, i) => dot.style.background = i === projCarouselIndex ? 'rgba(255,255,255,.9)' : 'rgba(255,255,255,.4)');
+    imgs.forEach((img, i) => img.style.display = i === idx ? 'block' : 'none');
+    dots.forEach((dot, i) => dot.style.background = i === idx ? 'rgba(255,255,255,.9)' : 'rgba(255,255,255,.4)');
   }
 
-  function setProjCarouselIndex(idx) {
-    const carousel = document.querySelector('.proj-carousel');
+  function setProjCarouselIndex(dot, idx) {
+    const carousel = dot.closest('.proj-carousel');
     const imgs = carousel.querySelectorAll('.proj-carousel-img');
     const dots = carousel.querySelectorAll('.proj-carousel-dot');
 
-    projCarouselIndex = idx;
+    carousel.dataset.carouselIndex = idx;
 
-    imgs.forEach((img, i) => img.style.display = i === projCarouselIndex ? 'block' : 'none');
-    dots.forEach((dot, i) => dot.style.background = i === projCarouselIndex ? 'rgba(255,255,255,.9)' : 'rgba(255,255,255,.4)');
+    imgs.forEach((img, i) => img.style.display = i === idx ? 'block' : 'none');
+    dots.forEach((dot, i) => dot.style.background = i === idx ? 'rgba(255,255,255,.9)' : 'rgba(255,255,255,.4)');
   }
 
   /* ── Project expand ── */
