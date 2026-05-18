@@ -767,8 +767,9 @@
       .strip-label br { display:none; }
       .strip-close { display:none; }
       .strip-div  { display:none; }
-      .strip-inner { flex-direction:column; align-items:center; gap:20px; padding:20px 15px; }
-      .strip-fields { flex-wrap:wrap; width:100%; gap:20px; justify-content:center; }
+      .strip-inner { flex-direction:column; align-items:center; gap:20px; padding:20px 15px; width:100%; }
+      .strip-fields { flex-direction:row; flex-wrap:nowrap; width:100%; gap:15px; justify-content:center; align-items:center; }
+      .strip-inp { flex:1; min-width:80px; }
       /* Mobile phone call button */
       .nav-phone-call { display:flex; }
       .strip-btn  { width:100%; }
