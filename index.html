@@ -926,7 +926,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <div class="proj-card">
-        <img class="proj-img" src="BEN%20SHEMEN/IMG-20260119-WA0059(1).jpg" alt="נופי בן שמן" />
+        <div class="proj-carousel" data-carousel-index="0" style="position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; background:#f0f0f0;">
+          <img class="proj-carousel-img" src="BEN%20SHEMEN/IMG-20260119-WA0059(1).jpg" alt="נופי בן שמן" style="width:100%; height:100%; object-fit:cover; object-position:center;" />
+          <img class="proj-carousel-img" src="https://storage.googleapis.com/lodcation_landing_page/media/IMAGE/Urban%20renewal/BEN%20SHEMEN/IMG-20260119-WA0053.jpg" alt="נופי בן שמן 2" style="width:100%; height:100%; object-fit:cover; object-position:center; display:none;" />
+          <img class="proj-carousel-img" src="https://storage.googleapis.com/lodcation_landing_page/media/IMAGE/Urban%20renewal/BEN%20SHEMEN/IMG-20260119-WA0057(1).jpg" alt="נופי בן שמן 3" style="width:100%; height:100%; object-fit:cover; object-position:center; display:none;" />
+          <img class="proj-carousel-img" src="https://storage.googleapis.com/lodcation_landing_page/media/IMAGE/Urban%20renewal/BEN%20SHEMEN/IMG-20260416-WA0125.jpg" alt="נופי בן שמן 4" style="width:100%; height:100%; object-fit:cover; object-position:center; display:none;" />
+          <img class="proj-carousel-img" src="https://storage.googleapis.com/lodcation_landing_page/media/IMAGE/Urban%20renewal/BEN%20SHEMEN/IMG-20260416-WA0144.jpg" alt="נופי בן שמן 5" style="width:100%; height:100%; object-fit:cover; object-position:center; display:none;" />
+          <button class="proj-carousel-btn proj-carousel-prev" onclick="scrollProjCarousel(this, -1)" style="position:absolute; left:12px; top:50%; transform:translateY(-50%); width:40px; height:40px; background:rgba(255,255,255,.85); border:none; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:5; transition:background .3s;">
+            <svg style="width:20px; height:20px; stroke:currentColor;" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="proj-carousel-btn proj-carousel-next" onclick="scrollProjCarousel(this, 1)" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); width:40px; height:40px; background:rgba(255,255,255,.85); border:none; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:5; transition:background .3s;">
+            <svg style="width:20px; height:20px; stroke:currentColor;" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <div style="position:absolute; bottom:12px; left:50%; transform:translateX(-50%); display:flex; gap:6px; z-index:5;">
+            <span class="proj-carousel-dot" style="width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.9); cursor:pointer;" onclick="setProjCarouselIndex(this, 0)"></span>
+            <span class="proj-carousel-dot" style="width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.4); cursor:pointer;" onclick="setProjCarouselIndex(this, 1)"></span>
+            <span class="proj-carousel-dot" style="width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.4); cursor:pointer;" onclick="setProjCarouselIndex(this, 2)"></span>
+            <span class="proj-carousel-dot" style="width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.4); cursor:pointer;" onclick="setProjCarouselIndex(this, 3)"></span>
+            <span class="proj-carousel-dot" style="width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.4); cursor:pointer;" onclick="setProjCarouselIndex(this, 4)"></span>
+          </div>
+        </div>
         <div class="proj-body">
           <h3>נופי בן שמן</h3>
           <p>שילוב מושלם בין טבע, קהילה צעירה ואיכות חיים מתקדמת. מחצית מהשכונה כבר מאוכלסת ותוססת – וכעת נותרו יחידות אחרונות בהחלט לשיווק!</p>
