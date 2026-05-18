@@ -507,10 +507,19 @@
       transition:color var(--ease);
     }
     .press-logo:hover { color:var(--blue); }
-    .press-img { height:32px; opacity:.5; filter:grayscale(1); transition:opacity .3s, filter .3s, transform .3s, box-shadow .3s; }
+    .press-img { height:32px; opacity:.5; filter:grayscale(1); transition:opacity .3s, filter .3s, transform .3s, box-shadow .3s; position:relative; }
     .press-img:hover { opacity:1; filter:grayscale(0); }
-    .press-img.logo-active { opacity:1; filter:grayscale(0); transform:scale(1.2); box-shadow:0 0 20px rgba(23,133,199,.6); }
-    .press-logos-dim .press-img:not(.logo-active) { opacity:.2; filter:grayscale(1); }
+    @keyframes logoPulse { 0%, 100% { transform:scale(1.4); filter:brightness(1.15); } 50% { transform:scale(1.45); filter:brightness(1.25); } }
+    @keyframes logoRing { 0% { box-shadow:0 0 0 0 rgba(170,32,110,0.8); } 100% { box-shadow:0 0 0 24px rgba(170,32,110,0); } }
+    .press-img.logo-active {
+      opacity:1;
+      filter:grayscale(0);
+      box-shadow:0 0 40px rgba(123,92,207,1), 0 0 70px rgba(170,32,110,0.6);
+      animation:logoPulse 2.5s ease-in-out infinite, logoRing 2.5s ease-out infinite;
+      position:relative;
+      z-index:10;
+    }
+    .press-logos-dim .press-img:not(.logo-active) { opacity:.15; filter:grayscale(1); }
 
     .media-deck {
       display:flex; justify-content:center; align-items:center;
@@ -1445,6 +1454,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
   });
 
+  /* ── Auto-highlight first media logo on page load ── */
+  window.addEventListener('load', () => {
+    const firstMediaSlide = document.querySelector('.media-slide');
+    if (firstMediaSlide && pressLogosWrap) {
+      const logoId = firstMediaSlide.dataset.logo;
+      setTimeout(() => {
+        pressLogosWrap.classList.add('press-logos-dim');
+        document.querySelectorAll('.press-img').forEach(l => l.classList.remove('logo-active'));
+        const target = document.getElementById('press-logo-' + logoId);
+        if (target) target.classList.add('logo-active');
+      }, 800);
+    }
+  });
 
 /* Open strip */
   function openStrip() {
