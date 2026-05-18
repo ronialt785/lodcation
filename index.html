@@ -1526,12 +1526,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const slides = document.querySelectorAll('.media-slide');
     const totalSlides = slides.length;
 
-    // Calculate how many rotations needed
-    let rotationsNeeded = (targetIndex - currentMediaIndex + totalSlides) % totalSlides;
+    // Calculate rotations needed in both directions
+    const rotationsForward = (targetIndex - currentMediaIndex + totalSlides) % totalSlides;
+    const rotationsBackward = (currentMediaIndex - targetIndex + totalSlides) % totalSlides;
+
+    // Choose the shorter path
+    const useForward = rotationsForward <= rotationsBackward;
+    const rotationsNeeded = useForward ? rotationsForward : rotationsBackward;
+    const direction = useForward ? 1 : -1;
 
     // Rotate the slides
     for (let i = 0; i < rotationsNeeded; i++) {
-      rotateMediaSlides(1);
+      rotateMediaSlides(direction);
     }
 
     currentMediaIndex = targetIndex;
