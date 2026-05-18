@@ -757,25 +757,25 @@
       .foot-top   { grid-template-columns:1fr; }
     }
     @media (max-width:640px) {
-      body { padding-bottom:20px; }
+      body { padding-bottom:130px; }
       .nav-inner  { justify-content:center; }
       .why-cards  { grid-template-columns:1fr; }
       .media-cards{ grid-template-columns:1fr; }
       .proj-grid  { grid-template-columns:1fr; }
       .gal-grid   { grid-template-columns:1fr 1fr; grid-template-rows:auto; }
-      .strip-label{ display:block; font-size:.6rem; white-space:normal; margin:0 auto 2px; text-align:center; font-weight:900; color:#fff; line-height:.9; }
+      .strip-label{ display:block; font-size:.91rem; white-space:nowrap; margin:0 auto 4px; text-align:center; font-weight:900; color:#fff; line-height:1.2; }
+      .strip-label br { display:none; }
       .strip-label span { color:#fff; opacity:1; font-weight:900; }
       #strip .strip-close { display:none !important; visibility:hidden !important; width:0 !important; height:0 !important; overflow:hidden !important; }
       .strip-close { display:none !important; visibility:hidden !important; width:0 !important; height:0 !important; }
       .strip-div  { display:none; }
-      .strip-inner { flex-direction:column; align-items:center; gap:1px; padding:1px 15px; width:100%; }
-      .strip-fields { flex-direction:row; flex-wrap:nowrap; width:100%; gap:6px; justify-content:center; align-items:flex-end; }
+      .strip-inner { flex-direction:column; align-items:center; gap:4px; padding:8px 15px; width:100%; }
+      .strip-fields { flex-direction:row; flex-wrap:wrap; width:100%; gap:6px; justify-content:center; align-items:flex-end; }
       .strip-inp { flex:1; min-width:45px; font-size:.6rem; padding:3px 1px 2px 1px; }
       .strip-inp::placeholder { color:rgba(255,255,255,.85); font-weight:500; }
-      .strip-btn { padding:6px 15px; font-size:.7rem; }
+      .strip-btn { padding:10px 15px; font-size:.8rem; flex:0 0 100%; width:100%; }
       /* Mobile phone call button */
       .nav-phone-call { display:flex; }
-      .strip-btn  { width:100%; }
       .mobile-only { display:block !important; }
       /* Mobile media carousel - horizontal scroll */
       .media-deck { height:auto; overflow-x:auto; overflow-y:hidden; -webkit-overflow-scrolling:touch; scrollbar-width:none; justify-content:flex-start; padding:20px 0; }
@@ -1094,7 +1094,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="proj-card">
         <div class="proj-carousel" data-carousel-index="0" style="position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; background:#f0f0f0;">
           <img class="proj-carousel-img" src="https://storage.googleapis.com/lodcation_landing_page/media/IMAGE/Urban%20renewal/BEN%20SHEMEN/CULTURE%20AND%20FREE%20TIME/WhatsApp%20Image%202026-05-17%20at%2013.30.jpg" alt="קומפלקס תרבות בילוי ופנאי" style="width:100%; height:100%; object-fit:cover; object-position:center;" />
-          <span class="proj-overlay" style="position:absolute; bottom:16px; right:16px; background:rgba(0,0,0,.6); color:#fff; padding:8px 12px; border-radius:6px; font-size:.85rem; font-weight:600; z-index:4; white-space:nowrap; display:block;">"הארנה" ברובע (הדמיה)</span>
+          <span class="proj-overlay" style="position:absolute; bottom:16px; right:16px; background:rgba(0,0,0,.6); color:#fff; padding:8px 12px; border-radius:6px; font-size:.85rem; font-weight:600; z-index:4; white-space:nowrap; display:block;">"הארנה" (הדמיה)</span>
           <img class="proj-carousel-img" src="https://storage.googleapis.com/lodcation_landing_page/media/IMAGE/Urban%20renewal/BEN%20SHEMEN/CULTURE%20AND%20FREE%20TIME/%D7%94%D7%99%D7%9B%D7%9C%20%D7%94%D7%AA%D7%A8%D7%91%D7%95%D7%AA.jpg" alt="היכל התרבות" style="width:100%; height:100%; object-fit:cover; object-position:center; display:none;" />
           <span class="proj-overlay" style="position:absolute; bottom:16px; right:16px; background:rgba(0,0,0,.6); color:#fff; padding:8px 12px; border-radius:6px; font-size:.85rem; font-weight:600; z-index:4; white-space:nowrap; display:none;">"הארנה"</span>
           <img class="proj-carousel-img" src="https://storage.googleapis.com/lodcation_landing_page/media/IMAGE/Urban%20renewal/BEN%20SHEMEN/CULTURE%20AND%20FREE%20TIME/%D7%9E%D7%92%D7%A8%D7%A9%D7%99%20%D7%A4%D7%90%D7%93%D7%9C%20(%D7%94%D7%93%D7%9E%D7%99%D7%94).png" alt="מגרשי פאדל" style="width:100%; height:100%; object-fit:cover; object-position:center; display:none;" />
@@ -1124,7 +1124,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
         <div class="proj-body">
-          <h3>קומפלקס תרבות בילוי ופנאי</h3>
+          <h3>תרבות, פנאי ובילוי ללא הפסקה</h3>
           <p>העיר לוד מגדירה מחדש את תרבות הפנאי והבילוי בישראל, עם פרויקטי ענק, מתחמי ספורט בינלאומיים ומוקדי תרבות ותיירות חדשניים שיהפכו את העיר ללב הפועם של האזור כולו.</p>
           <button class="proj-link" onclick="toggleProj(this)">לפרטים נוספים ↓</button>
           <div class="proj-details">
