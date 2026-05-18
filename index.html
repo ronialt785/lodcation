@@ -68,13 +68,14 @@
 
     .nav-phone-call {
       display:flex; align-items:center; gap:8px;
-      background:var(--blue); color:#fff; font-weight:700; font-size:.9rem;
+      background:linear-gradient(to left, #291876, #721d58, #aa206e);
+      color:#fff; font-weight:700; font-size:.9rem;
       padding:10px 18px; border:none; border-radius:6px;
-      cursor:pointer; transition:background var(--ease), transform .2s;
+      cursor:pointer; transition:filter var(--ease), transform .2s;
       margin-right:auto;
       flex-shrink:0;
     }
-    .nav-phone-call:hover { background:var(--blue-dk); transform:translateY(-1px); }
+    .nav-phone-call:hover { filter:brightness(0.85); transform:translateY(-1px); }
     .nav-phone-call svg { width:18px; height:18px; }
     .nav-logo img { height:160px; width:auto; filter:none; }
 
