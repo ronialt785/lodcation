@@ -535,6 +535,10 @@
       transition: transform 1s cubic-bezier(0.16,1,0.3,1),
                   opacity   .7s ease,
                   box-shadow .5s ease;
+      cursor:pointer;
+    }
+    .media-slide[data-url]:hover {
+      opacity:1;
     }
 
     /* ── Pile ── */
@@ -1152,14 +1156,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="media-deck" id="media-deck">
-      <div class="media-slide" data-logo="2"><div class="media-slide-inner"><img src="https://storage.googleapis.com/lodcation_landing_page/media/3527_LOD_ARTICLES_1080X1350_PURPLE.png" alt="כלכלית לוד בתקשורת" /></div></div>
-      <div class="media-slide" data-logo="3"><div class="media-slide-inner"><img src="https://storage.googleapis.com/lodcation_landing_page/media/3527_LOD_ARTICLES_1080X1350_PURPLE2.png" alt="כלכלית לוד בתקשורת" /></div></div>
-      <div class="media-slide" data-logo="1"><div class="media-slide-inner"><img src="https://storage.googleapis.com/lodcation_landing_page/media/3527_LOD_ARTICLES_1080X1350_PURPLE3.png" alt="כלכלית לוד בתקשורת" /></div></div>
-      <div class="media-slide" data-logo="5"><div class="media-slide-inner"><img src="https://storage.googleapis.com/lodcation_landing_page/media/3527_LOD_ARTICLES_1080X1350_PURPLE5.png" alt="כלכלית לוד בתקשורת" /></div></div>
-      <div class="media-slide" data-logo="4"><div class="media-slide-inner"><img src="https://storage.googleapis.com/lodcation_landing_page/media/3527_LOD_ARTICLES_1080X1350_PURPLE6.png" alt="כלכלית לוד בתקשורת" /></div></div>
-      <div class="media-slide" data-logo="7"><div class="media-slide-inner"><img src="https://storage.googleapis.com/lodcation_landing_page/media/3527_LOD_ARTICLES_1080X1350_PURPLE7.png" alt="כלכלית לוד בתקשורת" /></div></div>
-      <div class="media-slide" data-logo="6"><div class="media-slide-inner"><img src="https://storage.googleapis.com/lodcation_landing_page/media/3527_LOD_ARTICLES_1080X1350_PURPLE8.png" alt="כלכלית לוד בתקשורת" /></div></div>
-      <div class="media-slide" data-logo="2"><div class="media-slide-inner"><img src="https://storage.googleapis.com/lodcation_landing_page/media/3527_LOD_ARTICLES_1080X1350_PURPLE4.png" alt="כלכלית לוד בתקשורת" /></div></div>
+      <div class="media-slide" data-logo="2" data-url="https://magdilim.co.il/181120251023/"><div class="media-slide-inner"><img src="https://storage.googleapis.com/lodcation_landing_page/media/3527_LOD_ARTICLES_1080X1350_PURPLE.png" alt="כלכלית לוד בתקשורת" /></div></div>
+      <div class="media-slide" data-logo="3" data-url=""><div class="media-slide-inner"><img src="https://storage.googleapis.com/lodcation_landing_page/media/3527_LOD_ARTICLES_1080X1350_PURPLE2.png" alt="כלכלית לוד בתקשורת" /></div></div>
+      <div class="media-slide" data-logo="1" data-url=""><div class="media-slide-inner"><img src="https://storage.googleapis.com/lodcation_landing_page/media/3527_LOD_ARTICLES_1080X1350_PURPLE3.png" alt="כלכלית לוד בתקשורת" /></div></div>
+      <div class="media-slide" data-logo="5" data-url=""><div class="media-slide-inner"><img src="https://storage.googleapis.com/lodcation_landing_page/media/3527_LOD_ARTICLES_1080X1350_PURPLE5.png" alt="כלכלית לוד בתקשורת" /></div></div>
+      <div class="media-slide" data-logo="4" data-url=""><div class="media-slide-inner"><img src="https://storage.googleapis.com/lodcation_landing_page/media/3527_LOD_ARTICLES_1080X1350_PURPLE6.png" alt="כלכלית לוד בתקשורת" /></div></div>
+      <div class="media-slide" data-logo="7" data-url=""><div class="media-slide-inner"><img src="https://storage.googleapis.com/lodcation_landing_page/media/3527_LOD_ARTICLES_1080X1350_PURPLE7.png" alt="כלכלית לוד בתקשורת" /></div></div>
+      <div class="media-slide" data-logo="6" data-url=""><div class="media-slide-inner"><img src="https://storage.googleapis.com/lodcation_landing_page/media/3527_LOD_ARTICLES_1080X1350_PURPLE8.png" alt="כלכלית לוד בתקשורת" /></div></div>
+      <div class="media-slide" data-logo="2" data-url="https://magdilim.co.il/181120251023/"><div class="media-slide-inner"><img src="https://storage.googleapis.com/lodcation_landing_page/media/3527_LOD_ARTICLES_1080X1350_PURPLE4.png" alt="כלכלית לוד בתקשורת" /></div></div>
     </div>
 
     <!-- כפי שפורסם ב -->
@@ -1436,7 +1440,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }, { threshold: 0.3 }).observe(showcaseVideo);
   }
 
-  /* ── Media card → press logo highlight ── */
+  /* ── Media card → press logo highlight & click to link ── */
   const pressLogosWrap = document.getElementById('press-logos-wrap');
   document.querySelectorAll('.media-slide').forEach(card => {
     card.addEventListener('mouseenter', () => {
@@ -1451,6 +1455,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if (!pressLogosWrap) return;
       pressLogosWrap.classList.remove('press-logos-dim');
       document.querySelectorAll('.press-img').forEach(l => l.classList.remove('logo-active'));
+    });
+    card.addEventListener('click', () => {
+      const url = card.dataset.url;
+      if (url) window.open(url, '_blank');
     });
   });
 
