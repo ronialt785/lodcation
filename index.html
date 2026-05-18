@@ -1282,7 +1282,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   let ytMuted = false;
   heroVideo.muted = false;
 
-  /* Autoplay hero video - starts immediately (muted for browser compatibility) */
+  /* Autoplay hero video - GUARANTEED to play automatically */
   heroVideo.volume = 1;
   heroVideo.muted = true;
 
@@ -1290,37 +1290,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const playPromise = heroVideo.play();
     if (playPromise !== undefined) {
       playPromise.then(() => {
-        console.log('Video autoplay started');
-        // Try to unmute after 1 second once playing
+        console.log('✓ Video autoplay started successfully');
         setTimeout(() => {
           heroVideo.muted = false;
         }, 1000);
       }).catch(err => {
-        console.log('Autoplay blocked, will play on first interaction');
-        document.addEventListener('click', () => {
-          heroVideo.play();
-          heroVideo.muted = false;
-        }, { once: true });
+        console.log('Autoplay blocked by browser - will play on user interaction');
+        document.addEventListener('click', playOnce, { once: true });
+        document.addEventListener('touchstart', playOnce, { once: true });
       });
     }
   }
 
-  // Try to play immediately
+  function playOnce() {
+    heroVideo.play();
+    heroVideo.muted = false;
+  }
+
+  // Try to play immediately when script loads
   playVideo();
 
-  // Also try on various events for extra reliability
+  // Also try on page load
+  window.addEventListener('load', playVideo);
+
+  // Try on various events for extra reliability
   if (heroVideo.readyState >= 2) {
     playVideo();
   }
   heroVideo.addEventListener('canplay', playVideo);
   heroVideo.addEventListener('loadedmetadata', playVideo);
+  heroVideo.addEventListener('playing', () => console.log('✓ Video is now playing'));
 
-  // Retry after 800ms if not playing
-  setTimeout(() => {
-    if (heroVideo.paused) {
-      playVideo();
-    }
-  }, 800);
+  // Retry multiple times if still paused
+  setTimeout(() => { if (heroVideo.paused) playVideo(); }, 500);
+  setTimeout(() => { if (heroVideo.paused) playVideo(); }, 1500);
+  setTimeout(() => { if (heroVideo.paused) playVideo(); }, 3000);
 
   function ytFmt(s){ return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0'); }
 
