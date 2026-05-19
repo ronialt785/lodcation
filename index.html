@@ -765,13 +765,13 @@
       .media-cards{ grid-template-columns:1fr; }
       .proj-grid  { grid-template-columns:1fr; }
       .gal-grid   { grid-template-columns:1fr 1fr; grid-template-rows:auto; }
-      .strip-label{ display:block; font-size:.6rem; white-space:normal; margin:0 auto 2px; text-align:center; font-weight:900; color:#fff; line-height:.9; }
+      .strip-label{ display:block; font-size:.6rem; white-space:nowrap; margin:0 auto 2px; text-align:center; font-weight:900; color:#fff; line-height:.9; }
       .strip-label span { color:#fff; opacity:1; font-weight:900; }
       #strip .strip-close { display:none !important; visibility:hidden !important; width:0 !important; height:0 !important; overflow:hidden !important; }
       .strip-close { display:none !important; visibility:hidden !important; width:0 !important; height:0 !important; }
       .strip-div  { display:none; }
       .strip-inner { flex-direction:column; align-items:center; gap:1px; padding:1px 15px; width:100%; }
-      .strip-fields { flex-direction:row; flex-wrap:nowrap; width:100%; gap:6px; justify-content:center; align-items:flex-end; }
+      .strip-fields { flex-direction:row; flex-wrap:wrap; width:100%; gap:6px; justify-content:center; align-items:flex-end; }
       .strip-inp { flex:1; min-width:45px; font-size:.6rem; padding:3px 1px 2px 1px; }
       .strip-inp::placeholder { color:rgba(255,255,255,.85); font-weight:500; }
       .strip-btn { padding:6px 15px; font-size:.7rem; }
@@ -1292,7 +1292,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="strip">
   <div class="container">
     <div class="strip-inner">
-      <div class="strip-label">למידע נוסף&nbsp;<br/><span>השאירו פרטים עכשיו:</span></div>
+      <div class="strip-label">למידע נוסף&nbsp;<span>השאירו פרטים עכשיו:</span></div>
       <div class="strip-div"></div>
 
       <div class="strip-fields" id="strip-fields">
